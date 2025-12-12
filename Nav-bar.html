@@ -13,6 +13,7 @@
     --enx-seafoam:#4ECDC4;
     --enx-aqua:#7FE5DE;
     --enx-cloud:#F8FAFB;
+    --enx-nav-h:80px;
 
     --enx-text:var(--enx-midnight);
     --enx-muted:rgba(10,37,64,.72);
@@ -49,7 +50,7 @@
     display:flex;
     align-items:center;
     gap:18px;
-    min-height:80px;
+    min-height:var(--enx-nav-h);
   }
 
   .enx-nav__brand{
@@ -349,6 +350,10 @@
     border-radius:18px;
     box-shadow:0 16px 44px rgba(10,37,64,.14);
     overflow:hidden;
+    max-height:calc(100vh - var(--enx-nav-h) - 24px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
   }
 
   .enx-mobile__section{
