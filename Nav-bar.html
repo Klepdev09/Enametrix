@@ -1,0 +1,715 @@
+<!-- Enametrix Navigation Bar (Webflow Custom Code Embed)
+     Paste this whole block into an Embed element (or Page Settings > Custom Code).
+     If Inter is already loaded in Webflow, you can remove the <link> below.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --enx-midnight:#0A2540;
+    --enx-ocean:#1B3A5C;
+    --enx-seafoam:#4ECDC4;
+    --enx-aqua:#7FE5DE;
+    --enx-cloud:#F8FAFB;
+
+    --enx-text:var(--enx-midnight);
+    --enx-muted:rgba(10,37,64,.72);
+    --enx-border:rgba(10,37,64,.12);
+    --enx-shadow:0 18px 50px rgba(10,37,64,.14);
+
+    --enx-max:1280px;
+    --enx-pad:5%;
+    --enx-radius:14px;
+
+    --enx-font:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  }
+
+  /* Prevent Webflow theme styles from breaking buttons/links */
+  .enx-nav, .enx-nav *{ box-sizing:border-box; }
+
+  .enx-nav{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:rgba(248,250,251,.86);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--enx-border);
+    font-family:var(--enx-font);
+  }
+
+  .enx-nav__inner{
+    padding:14px var(--enx-pad);
+  }
+
+  .enx-nav__row{
+    max-width:var(--enx-max);
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .enx-nav__brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:180px;
+  }
+
+  .enx-nav__logo{
+    display:block;
+    width:154px;
+    height:auto;
+  }
+
+  .enx-nav__spacer{ flex:1; }
+
+  /* Desktop nav links */
+  .enx-nav__links{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .enx-link{
+    position:relative;
+    appearance:none;
+    border:0;
+    background:transparent;
+    color:var(--enx-text);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    line-height:1;
+    padding:12px 12px;
+    border-radius:10px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+
+  .enx-link:hover,
+  .enx-link:focus-visible{
+    background:rgba(127,229,222,.22);
+    outline:none;
+  }
+
+  .enx-link[aria-expanded="true"]{
+    background:rgba(127,229,222,.26);
+  }
+
+  .enx-caret{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    margin-left:6px;
+    border-right:2px solid currentColor;
+    border-bottom:2px solid currentColor;
+    transform:rotate(45deg);
+    translate:0 -1px;
+    opacity:.85;
+  }
+
+  /* Right side actions */
+  .enx-nav__actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+
+  .enx-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:12px 14px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
+    line-height:1;
+    white-space:nowrap;
+    transition:transform .12s ease, box-shadow .12s ease, background-color .12s ease, border-color .12s ease;
+  }
+
+  .enx-btn:active{ transform:translateY(1px); }
+
+  .enx-btn--ghost{
+    color:var(--enx-midnight);
+    background:transparent;
+    border-color:var(--enx-border);
+  }
+
+  .enx-btn--ghost:hover,
+  .enx-btn--ghost:focus-visible{
+    outline:none;
+    border-color:rgba(10,37,64,.22);
+    background:rgba(248,250,251,.7);
+    box-shadow:0 8px 24px rgba(10,37,64,.08);
+  }
+
+  .enx-btn--primary{
+    background:var(--enx-midnight);
+    color:var(--enx-cloud);
+    box-shadow:0 10px 30px rgba(10,37,64,.22);
+  }
+
+  .enx-btn--primary:hover,
+  .enx-btn--primary:focus-visible{
+    outline:none;
+    background:#083055;
+    box-shadow:0 14px 34px rgba(10,37,64,.26);
+  }
+
+  /* Mega menu panel (desktop) */
+  .enx-mega{
+    position:absolute;
+    left:0;
+    right:0;
+    top:100%;
+    padding:12px var(--enx-pad) 20px;
+    display:none;
+  }
+
+  .enx-mega[aria-hidden="false"]{ display:block; }
+
+  .enx-mega__wrap{
+    max-width:var(--enx-max);
+    margin:0 auto;
+    background:rgba(248,250,251,.98);
+    border:1px solid var(--enx-border);
+    box-shadow:var(--enx-shadow);
+    border-radius:18px;
+    overflow:hidden;
+  }
+
+  .enx-mega__grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1.9fr;
+    gap:0;
+    min-height:260px;
+  }
+
+  .enx-mega__banner{
+    padding:26px;
+    background:linear-gradient(135deg, rgba(27,58,92,.14), rgba(78,205,196,.16));
+    border-right:1px solid var(--enx-border);
+  }
+
+  .enx-mega__kicker{
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:rgba(10,37,64,.75);
+    font-weight:800;
+  }
+
+  .enx-mega__title{
+    margin:10px 0 8px;
+    font-size:22px;
+    line-height:1.2;
+    color:var(--enx-midnight);
+    font-weight:800;
+  }
+
+  .enx-mega__copy{
+    margin:0 0 16px;
+    font-size:14px;
+    line-height:1.55;
+    color:var(--enx-muted);
+    max-width:34ch;
+  }
+
+  .enx-mega__bannerActions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:14px;
+  }
+
+  .enx-mega__content{
+    padding:22px;
+  }
+
+  .enx-mega__heading{
+    font-size:12px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:rgba(10,37,64,.75);
+    font-weight:800;
+    margin:2px 0 14px;
+  }
+
+  .enx-mega__items{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:10px;
+  }
+
+  .enx-cardLink{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    text-decoration:none;
+    padding:12px 12px;
+    border-radius:14px;
+    border:1px solid rgba(10,37,64,.10);
+    background:rgba(248,250,251,.75);
+    transition:transform .12s ease, background-color .12s ease, border-color .12s ease;
+  }
+
+  .enx-cardLink:hover,
+  .enx-cardLink:focus-visible{
+    outline:none;
+    transform:translateY(-1px);
+    border-color:rgba(78,205,196,.55);
+    background:rgba(127,229,222,.20);
+  }
+
+  .enx-icon{
+    width:36px;
+    height:36px;
+    border-radius:12px;
+    background:rgba(78,205,196,.20);
+    border:1px solid rgba(78,205,196,.35);
+    display:grid;
+    place-items:center;
+    flex:none;
+  }
+
+  .enx-icon svg{ width:18px; height:18px; fill:var(--enx-ocean); }
+
+  .enx-cardTitle{
+    margin:0;
+    font-size:14px;
+    font-weight:800;
+    color:var(--enx-midnight);
+    line-height:1.2;
+  }
+
+  .enx-cardCopy{
+    margin:4px 0 0;
+    font-size:13px;
+    line-height:1.45;
+    color:rgba(10,37,64,.72);
+  }
+
+  /* Mobile menu */
+  .enx-burger{
+    display:none;
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    border:1px solid var(--enx-border);
+    background:rgba(248,250,251,.8);
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .enx-burger:focus-visible{ outline:2px solid rgba(78,205,196,.65); outline-offset:2px; }
+
+  .enx-burger__bars{
+    width:18px;
+    height:12px;
+    position:relative;
+  }
+
+  .enx-burger__bars span{
+    position:absolute;
+    left:0;
+    right:0;
+    height:2px;
+    background:var(--enx-midnight);
+    border-radius:2px;
+    transition:transform .15s ease, top .15s ease, opacity .15s ease;
+  }
+  .enx-burger__bars span:nth-child(1){ top:0; }
+  .enx-burger__bars span:nth-child(2){ top:5px; }
+  .enx-burger__bars span:nth-child(3){ top:10px; }
+
+  .enx-nav[data-mobile-open="true"] .enx-burger__bars span:nth-child(1){ top:5px; transform:rotate(45deg); }
+  .enx-nav[data-mobile-open="true"] .enx-burger__bars span:nth-child(2){ opacity:0; }
+  .enx-nav[data-mobile-open="true"] .enx-burger__bars span:nth-child(3){ top:5px; transform:rotate(-45deg); }
+
+  .enx-mobile{
+    display:none;
+    padding:0 var(--enx-pad) 18px;
+  }
+
+  .enx-mobile__panel{
+    max-width:var(--enx-max);
+    margin:0 auto;
+    background:rgba(248,250,251,.98);
+    border:1px solid var(--enx-border);
+    border-radius:18px;
+    box-shadow:0 16px 44px rgba(10,37,64,.14);
+    overflow:hidden;
+  }
+
+  .enx-mobile__section{
+    padding:14px 14px;
+    border-top:1px solid var(--enx-border);
+  }
+
+  .enx-mobile__top{
+    padding:12px 14px;
+  }
+
+  .enx-mobile__link{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    width:100%;
+    padding:14px 12px;
+    border-radius:14px;
+    border:1px solid rgba(10,37,64,.10);
+    background:rgba(248,250,251,.75);
+    text-decoration:none;
+    color:var(--enx-midnight);
+    font-weight:800;
+    font-size:14px;
+  }
+
+  .enx-mobile__link:hover,
+  .enx-mobile__link:focus-visible{
+    outline:none;
+    background:rgba(127,229,222,.20);
+    border-color:rgba(78,205,196,.55);
+  }
+
+  .enx-accordionBtn{
+    appearance:none;
+    border:1px solid rgba(10,37,64,.10);
+    background:rgba(248,250,251,.75);
+    width:100%;
+    padding:14px 12px;
+    border-radius:14px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:var(--enx-midnight);
+    font-weight:900;
+    font-size:14px;
+  }
+
+  .enx-accordionBtn:focus-visible{ outline:2px solid rgba(78,205,196,.65); outline-offset:2px; }
+
+  .enx-accordionPanel{
+    display:none;
+    padding:10px 0 0;
+  }
+  .enx-accordionPanel[aria-hidden="false"]{ display:block; }
+
+  .enx-mobileGrid{
+    display:grid;
+    gap:10px;
+  }
+
+  .enx-mobileActions{
+    display:grid;
+    gap:10px;
+    padding:14px;
+    border-top:1px solid var(--enx-border);
+    background:linear-gradient(180deg, rgba(248,250,251,.98), rgba(248,250,251,.92));
+  }
+
+  /* Responsive breakpoints */
+  @media (max-width: 980px){
+    .enx-nav__brand{ min-width:auto; }
+    .enx-nav__links,
+    .enx-nav__actions{ display:none; }
+    .enx-burger{ display:inline-flex; margin-left:auto; }
+    .enx-mobile{ display:block; }
+    .enx-mega{ display:none !important; }
+
+    .enx-nav[data-mobile-open="false"] .enx-mobile{ display:none; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .enx-btn, .enx-cardLink, .enx-burger__bars span{ transition:none !important; }
+  }
+</style>
+
+<header class="enx-nav" data-mobile-open="false">
+  <div class="enx-nav__inner">
+    <div class="enx-nav__row">
+      <a class="enx-nav__brand" href="/" aria-label="Enametrix home">
+        <img class="enx-nav__logo" src="https://cdn.prod.website-files.com/6907ae5897c5c1e84efa6717/6907b19cc606f8f089d0815b_Logo.svg" alt="Enametrix" loading="eager">
+      </a>
+
+      <nav class="enx-nav__links" aria-label="Primary">
+        <button class="enx-link" type="button" id="enx-services-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="enx-mega-services">
+          Services <span class="enx-caret" aria-hidden="true"></span>
+        </button>
+        <a class="enx-link" href="/pricing">Pricing</a>
+        <a class="enx-link" href="/about">About</a>
+        <a class="enx-link" href="/resources">Resources</a>
+      </nav>
+
+      <div class="enx-nav__spacer" aria-hidden="true"></div>
+
+      <div class="enx-nav__actions">
+        <a class="enx-btn enx-btn--ghost" href="/contact">Contact</a>
+        <a class="enx-btn enx-btn--primary" href="/start-project">Start project</a>
+      </div>
+
+      <button class="enx-burger" type="button" aria-label="Open menu" aria-controls="enx-mobile-panel" aria-expanded="false" id="enx-burger">
+        <span class="enx-burger__bars" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Desktop Mega Menu -->
+  <div class="enx-mega" id="enx-mega-services" aria-hidden="true">
+    <div class="enx-mega__wrap" role="dialog" aria-label="Services menu">
+      <div class="enx-mega__grid">
+        <div class="enx-mega__banner">
+          <div class="enx-mega__kicker">Complex solution</div>
+          <h3 class="enx-mega__title">Everything your dental practice needs to grow</h3>
+          <p class="enx-mega__copy">From conversion-first websites to automated scheduling and reviews—Enametrix connects the entire patient journey.</p>
+          <div class="enx-mega__bannerActions">
+            <a class="enx-btn enx-btn--primary" href="/start-project">Start project</a>
+            <a class="enx-btn enx-btn--ghost" href="/services">Explore all services</a>
+          </div>
+        </div>
+
+        <div class="enx-mega__content">
+          <div class="enx-mega__heading">Services</div>
+          <div class="enx-mega__items">
+            <a class="enx-cardLink" href="/services/dental-websites">
+              <div class="enx-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 6.5A3.5 3.5 0 0 1 7.5 3h9A3.5 3.5 0 0 1 20 6.5v11A3.5 3.5 0 0 1 16.5 21h-9A3.5 3.5 0 0 1 4 17.5v-11Zm3.5-1.25A1.25 1.25 0 0 0 6.25 6.5V9h11.5V6.5A1.25 1.25 0 0 0 16.5 5.25h-9Z"/></svg>
+              </div>
+              <div>
+                <p class="enx-cardTitle">Dental Websites</p>
+                <p class="enx-cardCopy">Modern, fast, and built to convert new patients.</p>
+              </div>
+            </a>
+
+            <a class="enx-cardLink" href="/services/hipaa-compliance">
+              <div class="enx-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2 20 5.5v7.2c0 5.1-3.2 9.2-8 10.8-4.8-1.6-8-5.7-8-10.8V5.5L12 2Zm0 3.1L6.2 7.2v5.5c0 3.7 2.2 6.9 5.8 8.4 3.6-1.5 5.8-4.7 5.8-8.4V7.2L12 5.1ZM11 10h2v7h-2v-7Zm0-3h2v2h-2V7Z"/></svg>
+              </div>
+              <div>
+                <p class="enx-cardTitle">HIPAA Compliance</p>
+                <p class="enx-cardCopy">Privacy-minded forms and tracking setup.</p>
+              </div>
+            </a>
+
+            <a class="enx-cardLink" href="/services/local-seo">
+              <div class="enx-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5.2-7 13-7 13S5 14.2 5 9a7 7 0 0 1 7-7Zm0 9.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/></svg>
+              </div>
+              <div>
+                <p class="enx-cardTitle">Local SEO for Dentists</p>
+                <p class="enx-cardCopy">Rank locally and capture high-intent searches.</p>
+              </div>
+            </a>
+
+            <a class="enx-cardLink" href="/services/online-scheduling">
+              <div class="enx-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2Zm15 8H2v10h20V10Zm-2-4H4v2h16V6Z"/></svg>
+              </div>
+              <div>
+                <p class="enx-cardTitle">Online Scheduling</p>
+                <p class="enx-cardCopy">Let patients book instantly—24/7, no calls.</p>
+              </div>
+            </a>
+
+            <a class="enx-cardLink" href="/services/virtual-front-desk">
+              <div class="enx-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7v4a3 3 0 0 1-3 3h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2V9a5 5 0 1 0-10 0v3h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H8a3 3 0 0 1-3-3V9a7 7 0 0 1 7-7Z"/></svg>
+              </div>
+              <div>
+                <p class="enx-cardTitle">Virtual Front Desk</p>
+                <p class="enx-cardCopy">Handle inquiries fast with smart workflows.</p>
+              </div>
+            </a>
+
+            <a class="enx-cardLink" href="/services/review-automation">
+              <div class="enx-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2Z"/></svg>
+              </div>
+              <div>
+                <p class="enx-cardTitle">Review Automation</p>
+                <p class="enx-cardCopy">Generate more 5-star reviews (ethically).</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="enx-mobile" aria-label="Mobile menu">
+    <div class="enx-mobile__panel" id="enx-mobile-panel">
+      <div class="enx-mobile__top">
+        <button class="enx-accordionBtn" type="button" id="enx-mobile-services" aria-expanded="false" aria-controls="enx-mobile-services-panel">
+          Services <span class="enx-caret" aria-hidden="true"></span>
+        </button>
+        <div class="enx-accordionPanel" id="enx-mobile-services-panel" aria-hidden="true">
+          <div class="enx-mobileGrid">
+            <a class="enx-mobile__link" href="/services/dental-websites">Dental Websites</a>
+            <a class="enx-mobile__link" href="/services/hipaa-compliance">HIPAA Compliance</a>
+            <a class="enx-mobile__link" href="/services/local-seo">Local SEO for Dentists</a>
+            <a class="enx-mobile__link" href="/services/online-scheduling">Online Scheduling</a>
+            <a class="enx-mobile__link" href="/services/virtual-front-desk">Virtual Front Desk</a>
+            <a class="enx-mobile__link" href="/services/review-automation">Review Automation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="enx-mobile__section">
+        <a class="enx-mobile__link" href="/pricing">Pricing</a>
+      </div>
+      <div class="enx-mobile__section">
+        <a class="enx-mobile__link" href="/about">About</a>
+      </div>
+      <div class="enx-mobile__section">
+        <a class="enx-mobile__link" href="/resources">Resources</a>
+      </div>
+
+      <div class="enx-mobileActions">
+        <a class="enx-btn enx-btn--ghost" href="/contact">Contact</a>
+        <a class="enx-btn enx-btn--primary" href="/start-project">Start project</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  (function(){
+    const root = document.querySelector('.enx-nav');
+    if(!root) return;
+
+    const burger = root.querySelector('#enx-burger');
+    const servicesTrigger = root.querySelector('#enx-services-trigger');
+    const mega = root.querySelector('#enx-mega-services');
+    const mobileServicesBtn = root.querySelector('#enx-mobile-services');
+    const mobileServicesPanel = root.querySelector('#enx-mobile-services-panel');
+
+    const isDesktop = () => window.matchMedia('(min-width: 981px)').matches;
+
+    function setMegaOpen(open){
+      if(!servicesTrigger || !mega) return;
+      servicesTrigger.setAttribute('aria-expanded', String(open));
+      mega.setAttribute('aria-hidden', String(!open));
+    }
+
+    function setMobileOpen(open){
+      root.setAttribute('data-mobile-open', String(open));
+      if(burger) burger.setAttribute('aria-expanded', String(open));
+      if(open){
+        // close desktop mega if any
+        setMegaOpen(false);
+      } else {
+        // collapse services accordion when closing
+        setMobileServicesOpen(false);
+      }
+    }
+
+    function setMobileServicesOpen(open){
+      if(!mobileServicesBtn || !mobileServicesPanel) return;
+      mobileServicesBtn.setAttribute('aria-expanded', String(open));
+      mobileServicesPanel.setAttribute('aria-hidden', String(!open));
+    }
+
+    // Desktop: open mega on hover/focus, close on mouseleave + outside click
+    let hoverCloseTimer = null;
+
+    function scheduleCloseMega(){
+      clearTimeout(hoverCloseTimer);
+      hoverCloseTimer = setTimeout(() => setMegaOpen(false), 120);
+    }
+
+    function cancelCloseMega(){
+      clearTimeout(hoverCloseTimer);
+    }
+
+    if(servicesTrigger && mega){
+      servicesTrigger.addEventListener('click', (e) => {
+        if(!isDesktop()) return;
+        e.preventDefault();
+        const open = servicesTrigger.getAttribute('aria-expanded') === 'true';
+        setMegaOpen(!open);
+      });
+
+      servicesTrigger.addEventListener('mouseenter', () => {
+        if(!isDesktop()) return;
+        cancelCloseMega();
+        setMegaOpen(true);
+      });
+
+      servicesTrigger.addEventListener('focus', () => {
+        if(!isDesktop()) return;
+        setMegaOpen(true);
+      });
+
+      mega.addEventListener('mouseenter', () => {
+        if(!isDesktop()) return;
+        cancelCloseMega();
+      });
+
+      mega.addEventListener('mouseleave', () => {
+        if(!isDesktop()) return;
+        scheduleCloseMega();
+      });
+
+      servicesTrigger.addEventListener('mouseleave', () => {
+        if(!isDesktop()) return;
+        scheduleCloseMega();
+      });
+    }
+
+    // Mobile burger
+    if(burger){
+      burger.addEventListener('click', () => {
+        const open = root.getAttribute('data-mobile-open') === 'true';
+        setMobileOpen(!open);
+      });
+    }
+
+    // Mobile services accordion
+    if(mobileServicesBtn){
+      mobileServicesBtn.addEventListener('click', () => {
+        const open = mobileServicesBtn.getAttribute('aria-expanded') === 'true';
+        setMobileServicesOpen(!open);
+      });
+    }
+
+    // Outside click closes menus
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if(!(t instanceof Element)) return;
+      if(!root.contains(t)){
+        setMegaOpen(false);
+        setMobileOpen(false);
+      }
+    });
+
+    // Escape closes menus
+    document.addEventListener('keydown', (e) => {
+      if(e.key !== 'Escape') return;
+      setMegaOpen(false);
+      setMobileOpen(false);
+    });
+
+    // On resize: reset state to avoid stuck menus
+    window.addEventListener('resize', () => {
+      setMegaOpen(false);
+      if(isDesktop()){
+        setMobileOpen(false);
+      }
+    }, { passive:true });
+
+  })();
+</script>
