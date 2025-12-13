@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Enametrix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --enx-midnight: #0A2540;
+      --enx-ocean: #1B3A5C;
+      --enx-seafoam: #4ECDC4;
+      --enx-aqua: #7FE5DE;
+      --enx-cloud: #F8FAFB;
+      
+      --enx-text: var(--enx-midnight);
+      --enx-muted: rgba(10, 37, 64, 0.72);
+      --enx-border: rgba(10, 37, 64, 0.12);
+      --enx-shadow: 0 18px 50px rgba(10, 37, 64, 0.14);
+      
+      --enx-max: 1280px;
+      --enx-pad: 5%;
+      --enx-radius: 14px;
+      --enx-block-padding: 120px;
+      
+      --enx-font: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--enx-font);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--enx-text);
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+    
+    /* Container - ensures max-width 1280px */
+    .enx-container {
+      max-width: var(--enx-max);
+      margin: 0 auto;
+      padding: 0 var(--enx-pad);
+    }
+    
+    /* Section Base */
+    .enx-section {
+      padding: var(--enx-block-padding) 0;
+      position: relative;
+    }
+    
+    /* Hero Section */
+    .enx-hero {
+      padding: calc(var(--enx-block-padding) + 40px) 0 var(--enx-block-padding);
+      background: linear-gradient(180deg, var(--enx-cloud) 0%, #ffffff 100%);
+      text-align: center;
+    }
+    
+    .enx-hero__inner {
+      max-width: var(--enx-max);
+      margin: 0 auto;
+      padding: 0 var(--enx-pad);
+    }
+    
+    .enx-hero__title {
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--enx-midnight);
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .enx-hero__subtitle {
+      font-size: 20px;
+      color: var(--enx-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease 0.2s forwards;
+    }
+    
+    /* Content Section */
+    .enx-content {
+      padding: var(--enx-block-padding) 0;
+    }
+    
+    .enx-content__inner {
+      max-width: var(--enx-max);
+      margin: 0 auto;
+      padding: 0 var(--enx-pad);
+    }
+    
+    .enx-content__header {
+      margin-bottom: 48px;
+    }
+    
+    .enx-content__title {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--enx-midnight);
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .enx-content__text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--enx-muted);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    /* Mission Section */
+    .enx-mission {
+      margin-top: 48px;
+    }
+    
+    /* Why We Started - Grid Layout */
+    .enx-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    
+    .enx-card {
+      background: var(--enx-cloud);
+      border: 1px solid var(--enx-border);
+      border-radius: var(--enx-radius);
+      padding: 32px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .enx-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--enx-shadow);
+      border-color: var(--enx-seafoam);
+    }
+    
+    .enx-card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--enx-seafoam), var(--enx-aqua));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .enx-card__icon svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--enx-midnight);
+    }
+    
+    .enx-card__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--enx-midnight);
+      margin-bottom: 12px;
+    }
+    
+    .enx-card__text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--enx-muted);
+    }
+    
+    /* What We Do - Services */
+    .enx-services {
+      background: var(--enx-cloud);
+      border-radius: 20px;
+      padding: 48px;
+      margin-top: 48px;
+    }
+    
+    .enx-services__intro {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--enx-muted);
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .enx-services__list {
+      list-style: none;
+      display: grid;
+      gap: 20px;
+    }
+    
+    .enx-service-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: #ffffff;
+      border: 1px solid var(--enx-border);
+      border-radius: 12px;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+      opacity: 0;
+      transform: translateX(-30px);
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .enx-service-item:hover {
+      transform: translateX(4px);
+      border-color: var(--enx-seafoam);
+      background: rgba(127, 229, 222, 0.08);
+    }
+    
+    .enx-service-item__bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--enx-seafoam);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    
+    .enx-service-item__content {
+      flex: 1;
+    }
+    
+    .enx-service-item__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--enx-midnight);
+      margin-bottom: 6px;
+    }
+    
+    .enx-service-item__text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--enx-muted);
+    }
+    
+    .enx-cta {
+      margin-top: 48px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .enx-cta__text {
+      font-size: 18px;
+      color: var(--enx-muted);
+      margin-bottom: 24px;
+    }
+    
+    .enx-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+    
+    .enx-btn--primary {
+      background: var(--enx-midnight);
+      color: #ffffff;
+      box-shadow: 0 10px 30px rgba(10, 37, 64, 0.22);
+    }
+    
+    .enx-btn--primary:hover {
+      background: #083055;
+      box-shadow: 0 14px 34px rgba(10, 37, 64, 0.26);
+      transform: translateY(-2px);
+    }
+    
+    /* Bento Layout Section */
+    .enx-bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    
+    .enx-bento__item {
+      background: var(--enx-cloud);
+      border: 1px solid var(--enx-border);
+      border-radius: var(--enx-radius);
+      padding: 32px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .enx-bento__item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--enx-shadow);
+      border-color: var(--enx-seafoam);
+    }
+    
+    /* Bento item sizes - create varied layout */
+    .enx-bento__item--span-2 {
+      grid-column: span 2;
+    }
+    
+    .enx-bento__item--span-row-2 {
+      grid-row: span 2;
+    }
+    
+    .enx-bento__item--large {
+      padding: 40px;
+    }
+    
+    .enx-bento__item__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--enx-seafoam), var(--enx-aqua));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .enx-bento__item__icon svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--enx-midnight);
+    }
+    
+    .enx-bento__item__title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--enx-midnight);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .enx-bento__item--large .enx-bento__item__title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    
+    .enx-bento__item__text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--enx-muted);
+    }
+    
+    .enx-bento__item--large .enx-bento__item__text {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Intersection Observer Animation Classes */
+    .enx-animate {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .enx-animate-left {
+      animation: fadeInLeft 0.8s ease forwards;
+    }
+    
+    .enx-animate-right {
+      animation: fadeInRight 0.8s ease forwards;
+    }
+    
+    /* Responsive */
+    @media (max-width: 980px) {
+      .enx-hero__title {
+        font-size: 36px;
+      }
+      
+      .enx-content__title {
+        font-size: 32px;
+      }
+      
+      .enx-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .enx-services {
+        padding: 32px 24px;
+      }
+      
+      .enx-bento {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .enx-bento__item--span-2,
+      .enx-bento__item--span-row-2 {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      
+      .enx-bento__item--large {
+        padding: 32px;
+      }
+      
+      .enx-bento__item--large .enx-bento__item__title {
+        font-size: 20px;
+      }
+      
+      .enx-bento__item--large .enx-bento__item__text {
+        font-size: 16px;
+      }
+      
+      .enx-section {
+        padding: 80px 0;
+      }
+      
+      .enx-hero {
+        padding: 100px 0 80px;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="enx-section enx-hero">
+    <div class="enx-hero__inner">
+      <h1 class="enx-hero__title">About Enametrix</h1>
+      <p class="enx-hero__subtitle">We're building the future of dental practice growth—one digital experience at a time.</p>
+    </div>
+  </section>
+
+  <!-- Our Mission -->
+  <section class="enx-section enx-content">
+    <div class="enx-content__inner">
+      <div class="enx-content__header">
+        <h2 class="enx-content__title" data-animate>Our Mission</h2>
+        <p class="enx-content__text" data-animate data-delay="0.1">
+          Make dentistry simpler to run — and easier to choose.
+        </p>
+      </div>
+      
+      <div class="enx-mission">
+        <p class="enx-content__text" data-animate data-delay="0.2" style="margin-bottom: 0;">
+          Enametrix exists to remove friction from the patient journey. From the first Google search to a booked appointment, we build digital experiences that feel modern, trustworthy, and effortless.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We Started -->
+  <section class="enx-section enx-content" style="background: var(--enx-cloud);">
+    <div class="enx-content__inner">
+      <div class="enx-content__header">
+        <h2 class="enx-content__title" data-animate>Why We Started</h2>
+        <p class="enx-content__text" data-animate data-delay="0.1">
+          Most dental websites look fine — but they don't perform.
+        </p>
+      </div>
+      <p class="enx-content__text" data-animate data-delay="0.2" style="margin-bottom: 0;">
+        Slow pages, confusing navigation, outdated design, missed leads, and manual admin work all add up. We started Enametrix to bring together what dental practices actually need:
+      </p>
+      
+      <div class="enx-grid">
+        <div class="enx-card" data-animate data-delay="0.3">
+          <div class="enx-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
+            </svg>
+          </div>
+          <h3 class="enx-card__title">A website that loads fast and converts</h3>
+          <p class="enx-card__text">Speed and conversion optimization built into every page.</p>
+        </div>
+        
+        <div class="enx-card" data-animate data-delay="0.4">
+          <div class="enx-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2a7 7 0 0 1 7 7c0 5.2-7 13-7 13S5 14.2 5 9a7 7 0 0 1 7-7Zm0 9.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z"/>
+            </svg>
+          </div>
+          <h3 class="enx-card__title">Local SEO that attracts the right patients</h3>
+          <p class="enx-card__text">Rank where it matters most—local search results.</p>
+        </div>
+        
+        <div class="enx-card" data-animate data-delay="0.5">
+          <div class="enx-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2a7 7 0 0 1 7 7v4a3 3 0 0 1-3 3h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2V9a5 5 0 1 0-10 0v3h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H8a3 3 0 0 1-3-3V9a7 7 0 0 1 7-7Z"/>
+            </svg>
+          </div>
+          <h3 class="enx-card__title">Automation that captures inquiries and fills schedules</h3>
+          <p class="enx-card__text">Reduce manual work and never miss a lead.</p>
+        </div>
+        
+        <div class="enx-card" data-animate data-delay="0.6">
+          <div class="enx-card__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+            </svg>
+          </div>
+          <h3 class="enx-card__title">Clear messaging that builds trust instantly</h3>
+          <p class="enx-card__text">Communicate value and expertise from the first visit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="enx-section enx-content">
+    <div class="enx-content__inner">
+      <div class="enx-content__header">
+        <h2 class="enx-content__title" data-animate>What We Do</h2>
+        <p class="enx-content__text" data-animate data-delay="0.1">
+          We're a focused studio that blends design, development, and practice-ready strategy.
+        </p>
+      </div>
+      
+      <div class="enx-services">
+        <p class="enx-services__intro" data-animate data-delay="0.2">Core services:</p>
+        
+        <ul class="enx-services__list">
+          <li>
+            <a href="https://enametrix.com/custom-dental-website" class="enx-service-item" data-animate-left data-delay="0.3">
+              <div class="enx-service-item__bullet"></div>
+              <div class="enx-service-item__content">
+                <h3 class="enx-service-item__title">Dental Websites & Landing Pages</h3>
+                <p class="enx-service-item__text">Modern design, conversion UX, and clean content structure</p>
+              </div>
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://enametrix.com/local-seo" class="enx-service-item" data-animate-left data-delay="0.4">
+              <div class="enx-service-item__bullet"></div>
+              <div class="enx-service-item__content">
+                <h3 class="enx-service-item__title">Local SEO for Dentists</h3>
+                <p class="enx-service-item__text">Visibility where it matters: map pack + "near me" searches</p>
+              </div>
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://enametrix.com/online-scheduling-patient-engagement" class="enx-service-item" data-animate-left data-delay="0.5">
+              <div class="enx-service-item__bullet"></div>
+              <div class="enx-service-item__content">
+                <h3 class="enx-service-item__title">Online Scheduling & Appointment Workflows</h3>
+                <p class="enx-service-item__text">Fewer missed opportunities, fewer back-and-forth calls</p>
+              </div>
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://enametrix.com/review-automation" class="enx-service-item" data-animate-left data-delay="0.6">
+              <div class="enx-service-item__bullet"></div>
+              <div class="enx-service-item__content">
+                <h3 class="enx-service-item__title">Review Automation</h3>
+                <p class="enx-service-item__text">Consistent, ethical review generation that supports reputation growth</p>
+              </div>
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://enametrix.com/virtual-front-desk-automation" class="enx-service-item" data-animate-left data-delay="0.7">
+              <div class="enx-service-item__bullet"></div>
+              <div class="enx-service-item__content">
+                <h3 class="enx-service-item__title">Virtual Front Desk & Intake Automation</h3>
+                <p class="enx-service-item__text">Capture leads, route requests, reduce repetitive tasks</p>
+              </div>
+            </a>
+          </li>
+          
+          <li>
+            <a href="https://enametrix.com/hippa-forms" class="enx-service-item" data-animate-left data-delay="0.8">
+              <div class="enx-service-item__bullet"></div>
+              <div class="enx-service-item__content">
+                <h3 class="enx-service-item__title">HIPAA-Aware Best Practices</h3>
+                <p class="enx-service-item__text">Forms, hosting guidance, access controls, and safer data handling</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        
+        <div class="enx-cta" data-animate data-delay="0.9">
+          <p class="enx-cta__text">If you're not sure what you need, we'll map it with you in a short discovery call.</p>
+          <a href="/contact" class="enx-btn enx-btn--primary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes Enametrix Different -->
+  <section class="enx-section enx-content" style="background: var(--enx-cloud);">
+    <div class="enx-content__inner">
+      <div class="enx-content__header">
+        <h2 class="enx-content__title" data-animate>What Makes Enametrix Different</h2>
+      </div>
+      
+      <div class="enx-bento">
+        <div class="enx-bento__item enx-bento__item--span-2" data-animate data-delay="0.1">
+          <div class="enx-bento__item__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <h3 class="enx-bento__item__title">Dental-specific focus</h3>
+          <p class="enx-bento__item__text">We build around real patient behaviours and clinic workflows</p>
+        </div>
+        
+        <div class="enx-bento__item enx-bento__item--span-row-2" data-animate data-delay="0.2">
+          <div class="enx-bento__item__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
+            </svg>
+          </div>
+          <h3 class="enx-bento__item__title">Performance as a feature</h3>
+          <p class="enx-bento__item__text">Speed, accessibility, and clean structure baked in</p>
+        </div>
+        
+        <div class="enx-bento__item" data-animate data-delay="0.3">
+          <div class="enx-bento__item__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-9H19V1h-2v1H7V1H5v1H3.5C2.67 2 2 2.67 2 3.5v17C2 21.33 2.67 22 3.5 22h17c.83 0 1.5-.67 1.5-1.5v-17C22 2.67 21.33 2 20.5 2zM20 20H4V9h16v11z"/>
+            </svg>
+          </div>
+          <h3 class="enx-bento__item__title">Conversion-first layouts</h3>
+          <p class="enx-bento__item__text">Every section has a purpose (not just decoration)</p>
+        </div>
+        
+        <div class="enx-bento__item" data-animate data-delay="0.4">
+          <div class="enx-bento__item__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2a7 7 0 0 1 7 7v4a3 3 0 0 1-3 3h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h2V9a5 5 0 1 0-10 0v3h2a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H8a3 3 0 0 1-3-3V9a7 7 0 0 1 7-7Z"/>
+            </svg>
+          </div>
+          <h3 class="enx-bento__item__title">Automation-minded</h3>
+          <p class="enx-bento__item__text">We reduce manual tasks and missed leads, not add complexity</p>
+        </div>
+        
+        <div class="enx-bento__item enx-bento__item--span-2 enx-bento__item--large" data-animate data-delay="0.5">
+          <div class="enx-bento__item__icon">
+            <svg viewBox="0 0 24 24">
+              <path d="m12 2 3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2Z"/>
+            </svg>
+          </div>
+          <h3 class="enx-bento__item__title">Premium, modern aesthetic</h3>
+          <p class="enx-bento__item__text">Your practice should look as advanced as your care</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const delay = element.getAttribute('data-delay') || 0;
+          
+          setTimeout(() => {
+            if (element.hasAttribute('data-animate')) {
+              element.classList.add('enx-animate');
+            }
+            if (element.hasAttribute('data-animate-left')) {
+              element.classList.add('enx-animate-left');
+            }
+            if (element.hasAttribute('data-animate-right')) {
+              element.classList.add('enx-animate-right');
+            }
+          }, delay * 1000);
+          
+          observer.unobserve(element);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with animation attributes
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('[data-animate], [data-animate-left], [data-animate-right]');
+      animatedElements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

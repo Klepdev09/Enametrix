@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get an Estimate for Your Custom Dental Website - Enametrix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="website-form.css">
+</head>
+<body>
+  <!-- Theme Toggle -->
+  <div class="enx-theme-toggle" id="theme-toggle">
+    <span class="enx-theme-toggle__label">Dark</span>
+    <div class="enx-theme-toggle__switch" id="theme-switch" role="button" aria-label="Toggle theme" tabindex="0"></div>
+    <span class="enx-theme-toggle__label">Light</span>
+  </div>
+  
+  <div class="enx-form-layout">
+    <!-- Left Sidebar Progress -->
+    <aside class="enx-sidebar">
+      <div class="enx-sidebar__logo">
+        <img src="https://cdn.prod.website-files.com/6907ae5897c5c1e84efa6717/6907b19cc606f8f089d0815b_Logo.svg" alt="Enametrix" id="sidebar-logo" style="filter: brightness(0) invert(1);">
+      </div>
+      
+      <nav class="enx-steps" aria-label="Form progress">
+        <div class="enx-step-item enx-step-item--active" data-step="1">
+          <div class="enx-step-item__number">1</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Practice Basics</div>
+            <div class="enx-step-item__helper">Tell us about your practice</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="2">
+          <div class="enx-step-item__number">2</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Website Goal</div>
+            <div class="enx-step-item__helper">Define purpose & strategy</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="3">
+          <div class="enx-step-item__number">3</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Current Situation</div>
+            <div class="enx-step-item__helper">Rebuild vs custom</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="4">
+          <div class="enx-step-item__number">4</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Pages & Structure</div>
+            <div class="enx-step-item__helper">Major pricing driver</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="5">
+          <div class="enx-step-item__number">5</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Features & Functionality</div>
+            <div class="enx-step-item__helper">Basic vs premium</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="6">
+          <div class="enx-step-item__number">6</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Design Expectations</div>
+            <div class="enx-step-item__helper">Custom vs template</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="7">
+          <div class="enx-step-item__number">7</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Timeline</div>
+            <div class="enx-step-item__helper">Project urgency</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="8">
+          <div class="enx-step-item__number">8</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Budget Range</div>
+            <div class="enx-step-item__helper">Project scope</div>
+          </div>
+        </div>
+        
+        <div class="enx-step-item" data-step="9">
+          <div class="enx-step-item__number">9</div>
+          <div class="enx-step-item__content">
+            <div class="enx-step-item__title">Contact Details</div>
+            <div class="enx-step-item__helper">Final step</div>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="enx-main-content">
+      <div class="enx-form-wrapper">
+        <!-- Mobile Step Indicator -->
+        <div class="enx-mobile-step-indicator" id="mobile-step-indicator">
+          <div class="enx-mobile-step-indicator__content">
+            <div class="enx-mobile-step-indicator__number" id="mobile-step-number">1</div>
+            <div class="enx-mobile-step-indicator__text">
+              <div class="enx-mobile-step-indicator__title" id="mobile-step-title">Practice Basics</div>
+              <div class="enx-mobile-step-indicator__helper" id="mobile-step-helper">Step 1 of 9</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 1: Practice Basics -->
+        <div class="enx-step enx-step--active" data-step="1">
+          <h2 class="enx-step__title">Tell us about your dental practice</h2>
+          <p class="enx-step__helper">Helps us understand who you are</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label for="practice_name" class="enx-form__label">Practice name</label>
+              <input type="text" id="practice_name" name="practice_name" class="enx-form__input" placeholder="Bright Smile Dental" required>
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="current_website" class="enx-form__label">Website (if existing) <span class="enx-form__label__optional">(optional)</span></label>
+              <input type="url" id="current_website" name="current_website" class="enx-form__input" placeholder="https://yourpractice.com">
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="city_state" class="enx-form__label">City & State</label>
+              <input type="text" id="city_state" name="city_state" class="enx-form__input" placeholder="Boston, MA" required>
+            </div>
+            
+            <div class="enx-form__group">
+              <label class="enx-form__label">Number of locations</label>
+              <div class="enx-options" style="grid-template-columns: repeat(3, 1fr);">
+                <label class="enx-option-card">
+                  <input type="radio" name="locations" value="1" required>
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">1</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="locations" value="2-3">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">2–3</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="locations" value="4+">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">4+</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__group">
+              <label class="enx-form__label">Type of practice <span class="enx-form__label__optional">(select all that apply)</span></label>
+              <div class="enx-features">
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="practice_type" value="general-dentistry">
+                  <div class="enx-feature-toggle__label">General Dentistry</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="practice_type" value="cosmetic-dentistry">
+                  <div class="enx-feature-toggle__label">Cosmetic Dentistry</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="practice_type" value="orthodontics">
+                  <div class="enx-feature-toggle__label">Orthodontics</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="practice_type" value="pediatric-dentistry">
+                  <div class="enx-feature-toggle__label">Pediatric Dentistry</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="practice_type" value="oral-surgery">
+                  <div class="enx-feature-toggle__label">Oral Surgery</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="practice_type" value="multi-specialty">
+                  <div class="enx-feature-toggle__label">Multi-Specialty</div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()" style="display: none;">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 2: Website Goal -->
+        <div class="enx-step" data-step="2">
+          <h2 class="enx-step__title">What's the main goal of your new website?</h2>
+          <p class="enx-step__helper">Defines purpose & conversion strategy</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label class="enx-form__label">Website goals <span class="enx-form__label__optional">(select all that apply)</span></label>
+              <div class="enx-features">
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="attract-local-patients">
+                  <div class="enx-feature-toggle__label">Attract more local patients</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="look-professional">
+                  <div class="enx-feature-toggle__label">Look more professional & modern</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="increase-appointments">
+                  <div class="enx-feature-toggle__label">Increase online appointment requests</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="replace-outdated">
+                  <div class="enx-feature-toggle__label">Replace an outdated website</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="improve-mobile">
+                  <div class="enx-feature-toggle__label">Improve mobile experience</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="support-ads-seo">
+                  <div class="enx-feature-toggle__label">Support paid ads / SEO</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="website_goals" value="build-trust">
+                  <div class="enx-feature-toggle__label">Build trust with new patients</div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 3: Current Situation -->
+        <div class="enx-step" data-step="3">
+          <h2 class="enx-step__title">What best describes your current website?</h2>
+          <p class="enx-step__helper">Determines rebuild vs full custom</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label class="enx-form__label">Current website status</label>
+              <div class="enx-options">
+                <label class="enx-option-card">
+                  <input type="radio" name="current_situation" value="no-website" required>
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M4 6.5A3.5 3.5 0 0 1 7.5 3h9A3.5 3.5 0 0 1 20 6.5v11A3.5 3.5 0 0 1 16.5 21h-9A3.5 3.5 0 0 1 4 17.5v-11Zm3.5-1.25A1.25 1.25 0 0 0 6.25 6.5V9h11.5V6.5A1.25 1.25 0 0 0 16.5 5.25h-9Z"/></svg></div>
+                    <div class="enx-option-card__title">I don't have a website yet</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="current_situation" value="outdated">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+                    <div class="enx-option-card__title">Website exists but looks outdated</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="current_situation" value="doesnt-convert">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                    <div class="enx-option-card__title">Website exists but doesn't convert</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="current_situation" value="needs-improvements">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></div>
+                    <div class="enx-option-card__title">Website exists and needs minor improvements</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="current_situation" value="not-sure">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+                    <div class="enx-option-card__title">Not sure — need expert review</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 4: Pages & Structure -->
+        <div class="enx-step" data-step="4">
+          <h2 class="enx-step__title">What pages do you need?</h2>
+          <p class="enx-step__helper">Major pricing driver</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label class="enx-form__label">Required pages <span class="enx-form__label__optional">(select all that apply)</span></label>
+              <div class="enx-features">
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="home">
+                  <div class="enx-feature-toggle__label">Home</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="about">
+                  <div class="enx-feature-toggle__label">About the Practice</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="services-overview">
+                  <div class="enx-feature-toggle__label">Services (main overview)</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="individual-services">
+                  <div class="enx-feature-toggle__label">Individual service pages</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="doctors-team">
+                  <div class="enx-feature-toggle__label">Doctors / Team</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="new-patient-forms">
+                  <div class="enx-feature-toggle__label">New Patient Forms</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="insurance-financing">
+                  <div class="enx-feature-toggle__label">Insurance & Financing</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="reviews-testimonials">
+                  <div class="enx-feature-toggle__label">Reviews / Testimonials</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="blog-resources">
+                  <div class="enx-feature-toggle__label">Blog / Resources</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="pages" value="contact">
+                  <div class="enx-feature-toggle__label">Contact page</div>
+                </label>
+                <label class="enx-feature-toggle" id="location-pages-toggle" style="display: none;">
+                  <input type="checkbox" name="pages" value="location-pages">
+                  <div class="enx-feature-toggle__label">Location pages (for multi-location)</div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__group" id="page-count-group" style="display: none;">
+              <label class="enx-form__label">Approximate number of pages</label>
+              <div class="enx-options" style="grid-template-columns: repeat(4, 1fr);">
+                <label class="enx-option-card">
+                  <input type="radio" name="page_count" value="5-7">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">5–7</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="page_count" value="8-12">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">8–12</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="page_count" value="13-20">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">13–20</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="page_count" value="20+">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">20+</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 5: Features & Functionality -->
+        <div class="enx-step" data-step="5">
+          <h2 class="enx-step__title">Which features should your website include?</h2>
+          <p class="enx-step__helper">Separates basic vs premium builds</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label class="enx-form__label">Website features <span class="enx-form__label__optional">(select all that apply)</span></label>
+              <div class="enx-features">
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="online-appointment">
+                  <div class="enx-feature-toggle__label">Online appointment request</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="hipaa-forms">
+                  <div class="enx-feature-toggle__label">HIPAA-compliant forms</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="live-chat">
+                  <div class="enx-feature-toggle__label">Live chat or virtual front desk</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="patient-intake">
+                  <div class="enx-feature-toggle__label">Patient intake forms</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="insurance-verification">
+                  <div class="enx-feature-toggle__label">Insurance verification</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="google-reviews">
+                  <div class="enx-feature-toggle__label">Google Reviews integration</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="seo-optimization">
+                  <div class="enx-feature-toggle__label">SEO optimization</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="blog-cms">
+                  <div class="enx-feature-toggle__label">Blog / content management</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="multilingual">
+                  <div class="enx-feature-toggle__label">Multilingual support</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="features" value="ada-accessibility">
+                  <div class="enx-feature-toggle__label">ADA accessibility compliance</div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 6: Design Expectations -->
+        <div class="enx-step" data-step="6">
+          <h2 class="enx-step__title">How custom should the design be?</h2>
+          <p class="enx-step__helper">Custom vs template clarity</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label class="enx-form__label">Design preference</label>
+              <div class="enx-options">
+                <label class="enx-option-card">
+                  <input type="radio" name="design_expectation" value="template-custom" required>
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M4 6.5A3.5 3.5 0 0 1 7.5 3h9A3.5 3.5 0 0 1 20 6.5v11A3.5 3.5 0 0 1 16.5 21h-9A3.5 3.5 0 0 1 4 17.5v-11Zm3.5-1.25A1.25 1.25 0 0 0 6.25 6.5V9h11.5V6.5A1.25 1.25 0 0 0 16.5 5.25h-9Z"/></svg></div>
+                    <div class="enx-option-card__title">Clean, modern template with customization</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="design_expectation" value="fully-custom">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg></div>
+                    <div class="enx-option-card__title">Fully custom design tailored to our brand</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="design_expectation" value="premium-animations">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                    <div class="enx-option-card__title">High-end, premium design with animations</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="design_expectation" value="trust-recommendation">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+                    <div class="enx-option-card__title">Not sure — trust Enametrix's recommendation</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="inspiration_websites" class="enx-form__label">Upload inspiration websites <span class="enx-form__label__optional">(optional)</span></label>
+              <input type="text" id="inspiration_websites" name="inspiration_websites" class="enx-form__input" placeholder="https://example1.com, https://example2.com">
+            </div>
+            
+            <div class="enx-form__group">
+              <label class="enx-form__label">Brand assets available? <span class="enx-form__label__optional">(optional)</span></label>
+              <div class="enx-features">
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="brand_assets" value="logo">
+                  <div class="enx-feature-toggle__label">Logo</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="brand_assets" value="brand-colors">
+                  <div class="enx-feature-toggle__label">Brand colors</div>
+                </label>
+                <label class="enx-feature-toggle">
+                  <input type="checkbox" name="brand_assets" value="none">
+                  <div class="enx-feature-toggle__label">None yet</div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 7: Timeline -->
+        <div class="enx-step" data-step="7">
+          <h2 class="enx-step__title">When do you want the website launched?</h2>
+          <p class="enx-step__helper">Urgency affects pricing</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <label class="enx-form__label">Launch timeline</label>
+              <div class="enx-options" style="grid-template-columns: repeat(4, 1fr);">
+                <label class="enx-option-card">
+                  <input type="radio" name="timeline" value="asap" required>
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">ASAP (2–4 weeks)</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="timeline" value="1-2-months">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">1–2 months</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="timeline" value="3-plus-months">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">3+ months</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="timeline" value="flexible">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">Flexible</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 8: Budget Range -->
+        <div class="enx-step" data-step="8">
+          <h2 class="enx-step__title">What budget range are you planning for this project?</h2>
+          <p class="enx-step__helper">Critical for filtering leads</p>
+          
+          <form class="enx-form" onsubmit="event.preventDefault(); nextStep();">
+            <div class="enx-form__group">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <label class="enx-form__label" style="margin-bottom: 0;">Budget range</label>
+                <span id="budget-display" class="enx-budget-display"></span>
+              </div>
+              <div class="enx-options">
+                <label class="enx-option-card">
+                  <input type="radio" name="budget" value="2500-4000">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">$2,500 – $4,000</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="budget" value="4000-7000">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">$4,000 – $7,000</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="budget" value="7000-12000">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">$7,000 – $12,000</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="budget" value="12000-plus">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">$12,000+</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="budget" value="not-sure">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">Not sure — need guidance</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary">Next step</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 9: Contact Details -->
+        <div class="enx-step" data-step="9">
+          <h2 class="enx-step__title">Where should we send your estimate?</h2>
+          <p class="enx-step__helper">We'll follow up with recommendations and next steps</p>
+          
+          <form class="enx-form" id="final-form" onsubmit="event.preventDefault(); submitForm();">
+            <div class="enx-form__group">
+              <label for="full_name" class="enx-form__label">Full name</label>
+              <input type="text" id="full_name" name="full_name" class="enx-form__input" placeholder="Dr. Alex Johnson" required>
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="role" class="enx-form__label">Role</label>
+              <select id="role" name="role" class="enx-form__select" required>
+                <option value="">Select your role...</option>
+                <option value="owner">Owner</option>
+                <option value="office-manager">Office Manager</option>
+                <option value="marketing">Marketing</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="email" class="enx-form__label">Email address</label>
+              <input type="email" id="email" name="email" class="enx-form__input" placeholder="office@yourpractice.com" required>
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="phone" class="enx-form__label">Phone number</label>
+              <input type="tel" id="phone" name="phone" class="enx-form__input" placeholder="+1 (555) 123-4567" required>
+            </div>
+            
+            <div class="enx-form__group">
+              <label class="enx-form__label">Preferred contact method</label>
+              <div class="enx-options" style="grid-template-columns: repeat(3, 1fr);">
+                <label class="enx-option-card">
+                  <input type="radio" name="contact_method" value="email" required>
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">Email</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="contact_method" value="phone">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">Phone</div>
+                  </div>
+                </label>
+                <label class="enx-option-card">
+                  <input type="radio" name="contact_method" value="zoom">
+                  <div class="enx-option-card__content">
+                    <div class="enx-option-card__title">Zoom call</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+            
+            <div class="enx-form__group">
+              <label for="additional_notes" class="enx-form__label">Anything else we should know? <span class="enx-form__label__optional">(optional)</span></label>
+              <textarea id="additional_notes" name="additional_notes" class="enx-form__textarea" placeholder="Any specific requirements, questions, or details about your project..."></textarea>
+            </div>
+            
+            <div class="enx-form__actions">
+              <button type="button" class="enx-btn enx-btn--secondary" onclick="prevStep()">Back</button>
+              <button type="submit" class="enx-btn enx-btn--primary" id="submit-btn">Submit request</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success Screen -->
+        <div class="enx-success" id="success-screen">
+          <div class="enx-success__icon">✅</div>
+          <h2 class="enx-success__title">Your request has been received</h2>
+          <p class="enx-success__text">Our team will review your details and prepare a <strong>custom estimate</strong> for your dental website.</p>
+          <p class="enx-success__text">You'll hear from Enametrix within <strong>1 business day</strong>.</p>
+          <div class="enx-success__actions">
+            <a href="https://enametrix.com" class="enx-btn enx-btn--primary" style="display: inline-block; text-decoration: none; margin-right: 16px;">Return to Homepage</a>
+            <a href="#" class="enx-btn enx-btn--secondary" style="display: inline-block; text-decoration: none;">Book a Free Strategy Call</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="website-form.js"></script>
+</body>
+</html>
+

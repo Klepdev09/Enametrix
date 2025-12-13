@@ -1,0 +1,129 @@
+/* Pricing CTA Block Styles */
+
+.ctaBlock {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.ctaBody {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+.trustBullets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 32px;
+}
+
+.trustBullets span:nth-child(odd) {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.ctaActions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  min-width: 180px;
+}
+
+.btnPrimary {
+  background: #4ECDC4;
+  color: #0A2540;
+  box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+}
+
+.btnPrimary:hover {
+  background: #7FE5DE;
+  box-shadow: 0 14px 34px rgba(78, 205, 196, 0.4);
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+.btnSecondary:hover {
+  border-color: #4ECDC4;
+  background: rgba(78, 205, 196, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ctaBlock {
+    padding: 40px 20px;
+  }
+
+  .ctaTitle {
+    font-size: 28px;
+  }
+
+  .ctaBody {
+    font-size: 16px;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Light mode support */
+body[data-theme="light"] .ctaTitle {
+  color: #0A2540;
+}
+
+body[data-theme="light"] .ctaBody,
+body[data-theme="light"] .trustBullets {
+  color: rgba(10, 37, 64, 0.72);
+}
+
+body[data-theme="light"] .trustBullets span:nth-child(odd) {
+  color: rgba(10, 37, 64, 0.9);
+}
+
+body[data-theme="light"] .btnSecondary {
+  color: #0A2540;
+  border-color: rgba(10, 37, 64, 0.12);
+}
+
