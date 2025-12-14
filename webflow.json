@@ -1,6 +1,6 @@
 {
   "cosmic": {
-    "framework": "vite",
+    "framework": "nextjs",
     "buildCommand": "cd Pricing-estimate && npm install && npm run build",
     "outputDirectory": "Pricing-estimate/dist"
   }
