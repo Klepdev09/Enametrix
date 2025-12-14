@@ -1,0 +1,8 @@
+{
+  "framework": "static",
+  "build": {
+    "command": "cd Pricing-estimate && npm install && npm run build",
+    "outputDirectory": "Pricing-estimate/dist"
+  }
+}
+
